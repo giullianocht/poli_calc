@@ -199,8 +199,7 @@ class ArmarView extends GetView<ArmarController> {
             SizedBox(
               height: 30.0,
             ),
-            RaisedButton(
-              color: Colors.blueAccent,
+            ElevatedButton(
               child: Text(
                 "Calcular",
                 style: TextStyle(

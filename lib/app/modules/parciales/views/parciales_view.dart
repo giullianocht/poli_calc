@@ -59,12 +59,11 @@ class ParcialesView extends GetView<ParcialesController> {
             SizedBox(
               height: 25.0,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text(
                 "Calcular",
                 style: TextStyle(color: Colors.white),
               ),
-              color: Colors.blueAccent,
               onPressed: controller.calcular,
             ),
             SizedBox(

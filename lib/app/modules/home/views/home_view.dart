@@ -14,28 +14,25 @@ class HomeView extends GetView<HomeController> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          RaisedButton(
+          ElevatedButton(
             child: Text(
               "Con Parciales",
               style: TextStyle(color: Colors.white),
             ),
-            color: Colors.blueAccent,
             onPressed: controller.irConParciales,
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text(
               "Con Promedio Ponderado",
               style: TextStyle(color: Colors.white),
             ),
-            color: Colors.blueAccent,
             onPressed: controller.irConPromedio,
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text(
               "Armar Promedio Ponderado",
               style: TextStyle(color: Colors.white),
             ),
-            color: Colors.blueAccent,
             onPressed: controller.irArmar,
           )
         ],

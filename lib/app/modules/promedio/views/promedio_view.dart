@@ -35,12 +35,11 @@ class PromedioView extends GetView<PromedioController> {
                 ],
               ),
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text(
                 "Calcular",
                 style: TextStyle(color: Colors.white),
               ),
-              color: Colors.blueAccent,
               onPressed: controller.calcular,
             ),
             SizedBox(
