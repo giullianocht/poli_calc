@@ -1,9 +1,9 @@
 import 'package:poli_calc/app/util/Util.dart';
 
-class Parciales {
+class Parcial {
   int primerParcial;
   int segundoParcial;
-  Parciales({required this.primerParcial, required this.segundoParcial})
+  Parcial({required this.primerParcial, required this.segundoParcial})
       : assert(
           primerParcial >= 0 &&
               primerParcial <= 100 &&

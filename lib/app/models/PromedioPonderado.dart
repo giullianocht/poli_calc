@@ -1,8 +1,8 @@
 import 'package:poli_calc/app/util/Util.dart';
-import 'package:poli_calc/app/models/Parciales.dart';
+import 'package:poli_calc/app/models/Parcial.dart';
 
 class PromedioPonderado {
-  Parciales parciales;
+  Parcial parciales;
   int laboratorio;
   int taller;
   int trabajoPractico;

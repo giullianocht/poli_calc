@@ -40,21 +40,25 @@ class ExamenFinal {
 
   int _getPuntuacionFinal() {
     if (_verificarSumaPorcentajes()) {
-      if (promedioPonderado.calcular() >= 50) {
+      var promedioPonderadoCalculado = promedioPonderado.calcular();
+      if (promedioPonderadoCalculado >= 50) {
         var puntuacionFinal =
             ((porcentajePuntajeExamenFinal * puntajeExamenFinal) +
-                (porcentajePromedioPonderado * promedioPonderado.calcular()));
+                (porcentajePromedioPonderado * promedioPonderadoCalculado));
 
         var puntuacionFinalRedondeado = Util.redondeo(puntuacionFinal);
 
         return puntuacionFinalRedondeado;
+      } else if (promedioPonderadoCalculado == -1) {
+        print("ERROR PP: LA SUMA DE LOS PORCENTAJES ES DISTINTO A 100");
+        return -1;
       } else {
         print("ERROR EF: PROMEDIO PONDERADO MENOR A 50");
-        return -1;
+        return -2;
       }
     } else {
       print("ERROR EF: LA SUMA DE LOS PORCENTAJES ES DISTINTO A 100");
-      return -1;
+      return -3;
     }
   }
 
@@ -74,7 +78,7 @@ class ExamenFinal {
       }
     } else {
       print("ERROR EF: ERROR AL CALCULAR LA NOTA");
-      return -1;
+      return puntuacionFinal;
     }
   }
 }
