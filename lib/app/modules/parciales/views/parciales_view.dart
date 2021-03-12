@@ -10,7 +10,7 @@ class ParcialesView extends GetView<ParcialesController> {
         title: Text('Con Parciales'),
         centerTitle: true,
       ),
-      body: Center(
+      /* body: Center(
           child: SingleChildScrollView(
         child: Column(
           children: [
@@ -142,7 +142,7 @@ class ParcialesView extends GetView<ParcialesController> {
             }),
           ],
         ),
-      )),
+      )),*/
     );
   }
 }

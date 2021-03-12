@@ -10,7 +10,7 @@ class PromedioView extends GetView<PromedioController> {
         title: Text('Con Promedio Ponderado'),
         centerTitle: true,
       ),
-      body: Center(
+      /* body: Center(
           child: SingleChildScrollView(
         child: Column(
           children: [
@@ -105,7 +105,7 @@ class PromedioView extends GetView<PromedioController> {
             }),
           ],
         ),
-      )),
+      )),*/
     );
   }
 }

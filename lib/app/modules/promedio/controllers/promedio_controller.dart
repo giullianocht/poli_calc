@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PromedioController extends GetxController {
-  TextEditingController ppController = TextEditingController();
+  /*TextEditingController ppController = TextEditingController();
 
   RxBool error = RxBool();
   RxString errorDetallado = RxString("");
@@ -72,5 +72,5 @@ class PromedioController extends GetxController {
       error.value = true;
       errorDetallado.value = "Error: Dato no valido";
     }
-  }
+  }*/
 }

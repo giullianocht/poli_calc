@@ -10,7 +10,7 @@ class ArmarView extends GetView<ArmarController> {
         title: Text('Armar Ponderado'),
         centerTitle: true,
       ),
-      body: Center(
+      /* body: Center(
           child: SingleChildScrollView(
         child: Column(
           children: [
@@ -285,7 +285,7 @@ class ArmarView extends GetView<ArmarController> {
             })
           ],
         ),
-      )),
+      )),*/
     );
   }
 }

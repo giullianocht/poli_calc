@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ParcialesController extends GetxController {
-  TextEditingController primerParcialController = TextEditingController();
+  /*TextEditingController primerParcialController = TextEditingController();
   TextEditingController segundoParcialController = TextEditingController();
 
   RxBool error = RxBool();
@@ -29,6 +29,7 @@ class ParcialesController extends GetxController {
         _validator(segundoParcialController.text)) {
       error.value = false;
       errorDetallado.value = "";
+
       double pp = double.tryParse(primerParcialController.text);
       double sp = double.tryParse(segundoParcialController.text);
       int promedio = ((pp + sp) / 2).round();
@@ -80,5 +81,5 @@ class ParcialesController extends GetxController {
       error.value = true;
       errorDetallado.value = "Error: Datos no validos";
     }
-  }
+  }*/
 }

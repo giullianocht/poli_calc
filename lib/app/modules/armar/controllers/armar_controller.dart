@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ArmarController extends GetxController {
+  /*
   TextEditingController primerParcialController = TextEditingController();
   TextEditingController segundoParcialController = TextEditingController();
   TextEditingController porcentajeParcialController = TextEditingController();
@@ -24,8 +25,8 @@ class ArmarController extends GetxController {
 
   bool _validator(String text) {
     if (num.tryParse(text) != null &&
-        num.tryParse(text) >= 0 &&
-        num.tryParse(text) <= 100) {
+        num.tryParse(text)! >= 0 &&
+        num.tryParse(text)! <= 100) {
       return true;
     } else {
       return false;
@@ -44,8 +45,8 @@ class ArmarController extends GetxController {
         _validator(porcentajeTallerController.text)) {
       error.value = false;
       errorDetallado.value = "";
-      int promedioParciales = ((double.tryParse(primerParcialController.text) +
-                  double.tryParse(segundoParcialController.text)) /
+      int promedioParciales = ((double.tryParse(primerParcialController.text)! +
+                  double.tryParse(segundoParcialController.text)!) /
               2)
           .round();
       if (promedioParciales < 50) {
@@ -53,7 +54,7 @@ class ArmarController extends GetxController {
         errorDetallado.value = "Error: Promedio de parciales menor a 50";
       }
       double porcentajeParciales =
-          int.tryParse(porcentajeParcialController.text) / 100;
+          int.tryParse(porcentajeParcialController.text)! / 100;
 
       int tp = int.tryParse(tpController.text);
       double porcentajeTp = int.tryParse(porcentajeTpController.text) / 100;
@@ -122,5 +123,5 @@ class ArmarController extends GetxController {
       error.value = true;
       errorDetallado.value = "Error: Datos ingresados no validos";
     }
-  }
+  }*/
 }
