@@ -1,4 +1,4 @@
-import 'package:poli_calc/app/Util/Util.dart';
+import 'package:poli_calc/app/util/Util.dart';
 
 class Parciales {
   int primerParcial;
