@@ -2,17 +2,16 @@ import 'package:poli_calc/app/util/Util.dart';
 import 'package:poli_calc/app/models/Parcial.dart';
 
 class PromedioPonderado {
-  Parcial parciales;
+  late Parcial parcial;
   int laboratorio;
   int taller;
   int trabajoPractico;
-  late double porcentajeParciales;
+  late double porcentajeParcial;
   late double porcentajeLaboratorio;
   late double porcentajeTaller;
   late double porcentajeTrabajoPractico;
 
   PromedioPonderado({
-    required this.parciales,
     required this.laboratorio,
     required this.taller,
     required this.trabajoPractico,
@@ -24,9 +23,12 @@ class PromedioPonderado {
               trabajoPractico >= 0 &&
               trabajoPractico <= 100,
         );
+  set setParcial(Parcial parcial) {
+    this.parcial = parcial;
+  }
 
-  set setPorcentajeParciales(int porcetaje) {
-    this.porcentajeParciales = (porcetaje / 100);
+  set setPorcentajeParcial(int porcetaje) {
+    this.porcentajeParcial = (porcetaje / 100);
   }
 
   set setPorcentajeLaboratorio(int porcetaje) {
@@ -44,7 +46,7 @@ class PromedioPonderado {
   //La suma de los porcentajes debe ser igual a 1
   //(1 representa 100%)
   bool _verificarSumaPorcentajes() {
-    var suma = (porcentajeParciales * 100) +
+    var suma = (porcentajeParcial * 100) +
         (porcentajeLaboratorio * 100) +
         (porcentajeTaller * 100) +
         (porcentajeTrabajoPractico * 100);
@@ -58,7 +60,7 @@ class PromedioPonderado {
   //Se calcula el Promedio Ponderado
   int calcular() {
     if (_verificarSumaPorcentajes()) {
-      var puntajeParciales = (parciales.promedio * porcentajeParciales);
+      var puntajeParciales = (parcial.promedio * porcentajeParcial);
       var puntajeLaboratorio = (laboratorio * porcentajeLaboratorio);
       var puntajeTaller = (taller * porcentajeTaller);
       var puntajeTrabajoPractico =

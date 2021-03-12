@@ -21,7 +21,7 @@ class HomeView extends GetView<HomeController> {
             ),
             onPressed: controller.irConParciales,
           ),
-          ElevatedButton(
+          /*ElevatedButton(
             child: Text(
               "Con Promedio Ponderado",
               style: TextStyle(color: Colors.white),
@@ -34,7 +34,7 @@ class HomeView extends GetView<HomeController> {
               style: TextStyle(color: Colors.white),
             ),
             onPressed: controller.irArmar,
-          )
+          )*/
         ],
       )),
     );

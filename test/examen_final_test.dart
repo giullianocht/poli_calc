@@ -5,19 +5,19 @@ import 'package:poli_calc/app/models/PromedioPonderado.dart';
 
 main() {
   test("Examen Final: 1", () {
-    var parciales = Parcial(primerParcial: 50, segundoParcial: 50);
+    var parcial = Parcial(primerParcial: 50, segundoParcial: 50);
     var laboratorio = 0;
     var taller = 0;
     var trabajoPractico = 0;
 
     var promedioPonderado = PromedioPonderado(
-      parciales: parciales,
       laboratorio: laboratorio,
       taller: taller,
       trabajoPractico: trabajoPractico,
     );
+    promedioPonderado.setParcial = parcial;
 
-    promedioPonderado.setPorcentajeParciales = 100;
+    promedioPonderado.setPorcentajeParcial = 100;
     promedioPonderado.setPorcentajeLaboratorio = 0;
     promedioPonderado.setPorcentajeTaller = 0;
     promedioPonderado.setPorcentajeTrabajoPractico = 0;
@@ -33,19 +33,19 @@ main() {
     expect(examenFinal.nota(), 1);
   });
   test("Examen Final: 1A", () {
-    var parciales = Parcial(primerParcial: 50, segundoParcial: 50);
+    var parcial = Parcial(primerParcial: 50, segundoParcial: 50);
     var laboratorio = 0;
     var taller = 0;
     var trabajoPractico = 0;
 
     var promedioPonderado = PromedioPonderado(
-      parciales: parciales,
       laboratorio: laboratorio,
       taller: taller,
       trabajoPractico: trabajoPractico,
     );
+    promedioPonderado.setParcial = parcial;
 
-    promedioPonderado.setPorcentajeParciales = 100;
+    promedioPonderado.setPorcentajeParcial = 100;
     promedioPonderado.setPorcentajeLaboratorio = 0;
     promedioPonderado.setPorcentajeTaller = 0;
     promedioPonderado.setPorcentajeTrabajoPractico = 0;
@@ -61,19 +61,19 @@ main() {
     expect(examenFinal.nota(), 1);
   });
   test("Examen Final: 1B", () {
-    var parciales = Parcial(primerParcial: 50, segundoParcial: 50);
+    var parcial = Parcial(primerParcial: 50, segundoParcial: 50);
     var laboratorio = 0;
     var taller = 0;
     var trabajoPractico = 0;
 
     var promedioPonderado = PromedioPonderado(
-      parciales: parciales,
       laboratorio: laboratorio,
       taller: taller,
       trabajoPractico: trabajoPractico,
     );
+    promedioPonderado.setParcial = parcial;
 
-    promedioPonderado.setPorcentajeParciales = 100;
+    promedioPonderado.setPorcentajeParcial = 100;
     promedioPonderado.setPorcentajeLaboratorio = 0;
     promedioPonderado.setPorcentajeTaller = 0;
     promedioPonderado.setPorcentajeTrabajoPractico = 0;
@@ -89,19 +89,19 @@ main() {
     expect(examenFinal.nota(), 1);
   });
   test("Examen Final: 1C", () {
-    var parciales = Parcial(primerParcial: 50, segundoParcial: 50);
+    var parcial = Parcial(primerParcial: 50, segundoParcial: 50);
     var laboratorio = 0;
     var taller = 0;
     var trabajoPractico = 0;
 
     var promedioPonderado = PromedioPonderado(
-      parciales: parciales,
       laboratorio: laboratorio,
       taller: taller,
       trabajoPractico: trabajoPractico,
     );
+    promedioPonderado.setParcial = parcial;
 
-    promedioPonderado.setPorcentajeParciales = 100;
+    promedioPonderado.setPorcentajeParcial = 100;
     promedioPonderado.setPorcentajeLaboratorio = 0;
     promedioPonderado.setPorcentajeTaller = 0;
     promedioPonderado.setPorcentajeTrabajoPractico = 0;
@@ -117,19 +117,19 @@ main() {
     expect(examenFinal.nota(), 1);
   });
   test("Examen Final: 2", () {
-    var parciales = Parcial(primerParcial: 50, segundoParcial: 50);
+    var parcial = Parcial(primerParcial: 50, segundoParcial: 50);
     var laboratorio = 0;
     var taller = 0;
     var trabajoPractico = 0;
 
     var promedioPonderado = PromedioPonderado(
-      parciales: parciales,
       laboratorio: laboratorio,
       taller: taller,
       trabajoPractico: trabajoPractico,
     );
+    promedioPonderado.setParcial = parcial;
 
-    promedioPonderado.setPorcentajeParciales = 100;
+    promedioPonderado.setPorcentajeParcial = 100;
     promedioPonderado.setPorcentajeLaboratorio = 0;
     promedioPonderado.setPorcentajeTaller = 0;
     promedioPonderado.setPorcentajeTrabajoPractico = 0;
@@ -145,19 +145,19 @@ main() {
     expect(examenFinal.nota(), 2);
   });
   test("Examen Final: 3", () {
-    var parciales = Parcial(primerParcial: 85, segundoParcial: 70);
+    var parcial = Parcial(primerParcial: 85, segundoParcial: 70);
     var laboratorio = 70;
     var taller = 85;
     var trabajoPractico = 90;
 
     var promedioPonderado = PromedioPonderado(
-      parciales: parciales,
       laboratorio: laboratorio,
       taller: taller,
       trabajoPractico: trabajoPractico,
     );
+    promedioPonderado.setParcial = parcial;
 
-    promedioPonderado.setPorcentajeParciales = 50;
+    promedioPonderado.setPorcentajeParcial = 50;
     promedioPonderado.setPorcentajeLaboratorio = 20;
     promedioPonderado.setPorcentajeTaller = 15;
     promedioPonderado.setPorcentajeTrabajoPractico = 15;
@@ -174,19 +174,19 @@ main() {
   });
   test("Examen Final ERROR: Promedio Ponderado suma de porcentajes incorrecto",
       () {
-    var parciales = Parcial(primerParcial: 85, segundoParcial: 70);
+    var parcial = Parcial(primerParcial: 85, segundoParcial: 70);
     var laboratorio = 70;
     var taller = 85;
     var trabajoPractico = 90;
 
     var promedioPonderado = PromedioPonderado(
-      parciales: parciales,
       laboratorio: laboratorio,
       taller: taller,
       trabajoPractico: trabajoPractico,
     );
+    promedioPonderado.setParcial = parcial;
 
-    promedioPonderado.setPorcentajeParciales = 80;
+    promedioPonderado.setPorcentajeParcial = 80;
     promedioPonderado.setPorcentajeLaboratorio = 20;
     promedioPonderado.setPorcentajeTaller = 15;
     promedioPonderado.setPorcentajeTrabajoPractico = 15;
@@ -202,19 +202,19 @@ main() {
     expect(examenFinal.nota(), -1);
   });
   test("Examen Final ERROR: Promedio Ponderado < 50", () {
-    var parciales = Parcial(primerParcial: 40, segundoParcial: 50);
+    var parcial = Parcial(primerParcial: 40, segundoParcial: 50);
     var laboratorio = 0;
     var taller = 0;
     var trabajoPractico = 0;
 
     var promedioPonderado = PromedioPonderado(
-      parciales: parciales,
       laboratorio: laboratorio,
       taller: taller,
       trabajoPractico: trabajoPractico,
     );
+    promedioPonderado.setParcial = parcial;
 
-    promedioPonderado.setPorcentajeParciales = 100;
+    promedioPonderado.setPorcentajeParcial = 100;
     promedioPonderado.setPorcentajeLaboratorio = 0;
     promedioPonderado.setPorcentajeTaller = 0;
     promedioPonderado.setPorcentajeTrabajoPractico = 0;
@@ -230,19 +230,19 @@ main() {
     expect(examenFinal.nota(), -2);
   });
   test("Examen Final ERROR: Suma de los porcentajes finales incorrecto", () {
-    var parciales = Parcial(primerParcial: 40, segundoParcial: 50);
+    var parcial = Parcial(primerParcial: 40, segundoParcial: 50);
     var laboratorio = 0;
     var taller = 0;
     var trabajoPractico = 0;
 
     var promedioPonderado = PromedioPonderado(
-      parciales: parciales,
       laboratorio: laboratorio,
       taller: taller,
       trabajoPractico: trabajoPractico,
     );
+    promedioPonderado.setParcial = parcial;
 
-    promedioPonderado.setPorcentajeParciales = 100;
+    promedioPonderado.setPorcentajeParcial = 100;
     promedioPonderado.setPorcentajeLaboratorio = 0;
     promedioPonderado.setPorcentajeTaller = 0;
     promedioPonderado.setPorcentajeTrabajoPractico = 0;
