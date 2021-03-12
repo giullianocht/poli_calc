@@ -3,9 +3,11 @@ import 'package:poli_calc/app/models/Parcial.dart';
 
 class PromedioPonderado {
   late Parcial parcial;
-  int laboratorio;
-  int taller;
-  int trabajoPractico;
+  late int laboratorio;
+  late int taller;
+  late int trabajoPractico;
+  bool _auxTengo = false;
+  int _promedioPonderado = 0;
   late double porcentajeParcial;
   late double porcentajeLaboratorio;
   late double porcentajeTaller;
@@ -23,6 +25,16 @@ class PromedioPonderado {
               trabajoPractico >= 0 &&
               trabajoPractico <= 100,
         );
+
+  PromedioPonderado.tengoUnPromedioPonderado(int valor) {
+    this._auxTengo = true;
+    this._promedioPonderado = valor;
+  }
+  set setPromedioPonderado(int valor) {
+    this._auxTengo = true;
+    this._promedioPonderado = valor;
+  }
+
   set setParcial(Parcial parcial) {
     this.parcial = parcial;
   }
@@ -59,25 +71,29 @@ class PromedioPonderado {
 
   //Se calcula el Promedio Ponderado
   int calcular() {
-    if (_verificarSumaPorcentajes()) {
-      var puntajeParciales = (parcial.promedio * porcentajeParcial);
-      var puntajeLaboratorio = (laboratorio * porcentajeLaboratorio);
-      var puntajeTaller = (taller * porcentajeTaller);
-      var puntajeTrabajoPractico =
-          (trabajoPractico * porcentajeTrabajoPractico);
-
-      var puntajePromedioPonderado = (puntajeParciales +
-          puntajeLaboratorio +
-          puntajeTaller +
-          puntajeTrabajoPractico);
-
-      var puntajePromedioPonderadoRedondeado =
-          Util.redondeo(puntajePromedioPonderado);
-
-      return puntajePromedioPonderadoRedondeado;
+    if (_auxTengo) {
+      return this._promedioPonderado;
     } else {
-      print("ERROR PP: LA SUMA DE LOS PORCENTAJES ES DISTINTO A 100");
-      return -1;
+      if (_verificarSumaPorcentajes()) {
+        var puntajeParciales = (parcial.promedio * porcentajeParcial);
+        var puntajeLaboratorio = (laboratorio * porcentajeLaboratorio);
+        var puntajeTaller = (taller * porcentajeTaller);
+        var puntajeTrabajoPractico =
+            (trabajoPractico * porcentajeTrabajoPractico);
+
+        var puntajePromedioPonderado = (puntajeParciales +
+            puntajeLaboratorio +
+            puntajeTaller +
+            puntajeTrabajoPractico);
+
+        var puntajePromedioPonderadoRedondeado =
+            Util.redondeo(puntajePromedioPonderado);
+
+        return puntajePromedioPonderadoRedondeado;
+      } else {
+        print("ERROR PP: LA SUMA DE LOS PORCENTAJES ES DISTINTO A 100");
+        return -1;
+      }
     }
   }
 }

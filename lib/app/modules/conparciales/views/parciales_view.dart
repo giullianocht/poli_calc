@@ -16,7 +16,7 @@ class ConParcialesView extends GetView<ConParcialesController> {
         //el home
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () => Get.toNamed(Routes.HOME),
+          onPressed: () => Get.offNamed(Routes.HOME),
         ),
         centerTitle: true,
       ),
@@ -84,7 +84,6 @@ class ConParcialesView extends GetView<ConParcialesController> {
 
   void modalResultados() {
     var notas = controller.calcularNotas();
-    print(notas);
     Get.defaultDialog(
       title: "Notas",
       content: Column(

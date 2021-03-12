@@ -1,76 +1,65 @@
-//import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:poli_calc/app/models/ExamenFinal.dart';
+import 'package:poli_calc/app/models/PromedioPonderado.dart';
 
 class PromedioController extends GetxController {
-  /*TextEditingController ppController = TextEditingController();
+  var _promedioPonderado = PromedioPonderado.tengoUnPromedioPonderado(50);
+  //El auxiliar se utiliza para manejar el NumberPicker
+  var _auxPromedioPonderado = 50.obs;
+  var examenFinal = ExamenFinal().obs;
 
-  RxBool error = RxBool();
-  RxString errorDetallado = RxString("");
+  @override
+  void onInit() {
+    examenFinal.value!.setPromedioPonderado = _promedioPonderado;
+    examenFinal.value!.setPuntajeExamenFinal = 0;
 
-  RxInt dos = RxInt(0);
-  RxInt tres = RxInt(0);
-  RxInt cuatro = RxInt(0);
-  RxInt cinco = RxInt(0);
+    examenFinal.value!.setPorcentajePromedioPonderado = 60;
+    examenFinal.value!.setPorcetajePuntajeExamenFinal = 40;
 
-  bool _validator(String text) {
-    if (num.tryParse(text) != null &&
-        num.tryParse(text) >= 0 &&
-        num.tryParse(text) <= 100) {
-      return true;
-    } else {
-      return false;
-    }
+    super.onInit();
   }
 
-  void calcular() {
-    if (_validator(ppController.text)) {
-      error.value = false;
-      errorDetallado.value = "";
-      double promedio = double.tryParse(ppController.text);
+  @override
+  void onReady() {
+    super.onReady();
+  }
 
-      if (promedio < 50) {
-        error.value = true;
-        errorDetallado.value = "Error: Promedio menor a 50";
-      }
+  @override
+  void onClose() {
+    super.onClose();
+  }
 
-      for (var i = 50; i <= 100; i++) {
-        if (((promedio * 0.60) + (i * 0.40)).round() >= 60 && promedio >= 50) {
-          dos.value = i;
-          break;
-        } else {
-          dos.value = 0;
-        }
+  void setPromedioPonderado(int valor) {
+    _auxPromedioPonderado.value = valor;
+  }
+
+  int get promedioPonderado {
+    return _auxPromedioPonderado.value;
+  }
+
+  int _auxCalcularNota(int notaFinal, int iniPuntaje) {
+    for (var puntaje = iniPuntaje; puntaje <= 100; puntaje++) {
+      examenFinal.value!.setPuntajeExamenFinal = puntaje;
+      if (examenFinal.value!.nota() == notaFinal) {
+        return puntaje;
       }
-      for (var i = 50; i <= 100; i++) {
-        if (((promedio * 0.60) + (i * 0.40)).round() >= 71 && promedio >= 50) {
-          tres.value = i;
-          break;
-        } else {
-          tres.value = 0;
-        }
-      }
-      if (dos.value == tres.value) {
-        dos.value = 0;
-      }
-      for (var i = 50; i <= 100; i++) {
-        if (((promedio * 0.60) + (i * 0.40)).round() >= 81 && promedio >= 50) {
-          cuatro.value = i;
-          break;
-        } else {
-          cuatro.value = 0;
-        }
-      }
-      for (var i = 50; i <= 100; i++) {
-        if (((promedio * 0.60) + (i * 0.40)).round() >= 91 && promedio >= 50) {
-          cinco.value = i;
-          break;
-        } else {
-          cinco.value = 0;
-        }
-      }
-    } else {
-      error.value = true;
-      errorDetallado.value = "Error: Dato no valido";
     }
-  }*/
+    //Error
+    return -1;
+  }
+
+  List<int> calcularNotas() {
+    examenFinal.value!.promedioPonderado.setPromedioPonderado =
+        _auxPromedioPonderado.value;
+    var puntajeParaDos = _auxCalcularNota(2, 50);
+    var puntajeParaTres = _auxCalcularNota(3, puntajeParaDos);
+    var puntajeParaCuatro = _auxCalcularNota(4, puntajeParaTres);
+    var puntajeParaCinco = _auxCalcularNota(5, puntajeParaCuatro);
+    return [
+      puntajeParaDos,
+      puntajeParaTres,
+      puntajeParaCuatro,
+      puntajeParaCinco
+    ];
+  }
 }

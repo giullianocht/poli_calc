@@ -9,10 +9,8 @@ class ConParcialesController extends GetxController {
   //y tampoco un porcentaje para ellos ya que el porcentaje del
   //calculo del parcial es 100
   var parcial = Parcial(primerParcial: 50, segundoParcial: 50);
-
   var promedioPonderado =
       PromedioPonderado(laboratorio: 0, taller: 0, trabajoPractico: 0);
-
   var examenFinal = ExamenFinal().obs;
 
   @override

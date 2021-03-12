@@ -7,7 +7,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calcular Nota'),
+        title: Text('Poli Calculadora'),
         centerTitle: true,
       ),
       body: Center(
@@ -17,18 +17,22 @@ class HomeView extends GetView<HomeController> {
           ElevatedButton(
             child: Text(
               "Con Parciales",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
             onPressed: controller.irConParciales,
           ),
-          /*ElevatedButton(
+          ElevatedButton(
             child: Text(
               "Con Promedio Ponderado",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
             onPressed: controller.irConPromedio,
           ),
-          ElevatedButton(
+          /*ElevatedButton(
             child: Text(
               "Armar Promedio Ponderado",
               style: TextStyle(color: Colors.white),

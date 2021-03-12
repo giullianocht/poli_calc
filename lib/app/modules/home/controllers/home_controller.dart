@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:poli_calc/app/routes/app_pages.dart';
 
 class HomeController extends GetxController {
-  void irConParciales() => Get.toNamed(Routes.CONPARCIALES);
-  void irConPromedio() => Get.toNamed(Routes.PROMEDIO);
-  void irArmar() => Get.toNamed(Routes.ARMAR);
+  void irConParciales() => Get.offNamed(Routes.CONPARCIALES);
+  void irConPromedio() => Get.offNamed(Routes.PROMEDIO);
+  void irArmar() => Get.offNamed(Routes.ARMAR);
 }
