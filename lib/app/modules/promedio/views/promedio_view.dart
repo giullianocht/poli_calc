@@ -44,6 +44,10 @@ class PromedioView extends GetView<PromedioController> {
                       maxValue: 100,
                       onChanged: (value) =>
                           controller.setPromedioPonderado(value),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.black26),
+                      ),
                     ),
                   ],
                 ),

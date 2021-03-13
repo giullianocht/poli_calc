@@ -43,6 +43,10 @@ class ConParcialesView extends GetView<ConParcialesController> {
                       minValue: 0,
                       maxValue: 100,
                       onChanged: (value) => controller.setPrimerParcial(value),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.black26),
+                      ),
                     ),
                   ],
                 ),
@@ -65,6 +69,10 @@ class ConParcialesView extends GetView<ConParcialesController> {
                       minValue: 0,
                       maxValue: 100,
                       onChanged: (value) => controller.setSegundoParcial(value),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.black26),
+                      ),
                     ),
                   ],
                 ),

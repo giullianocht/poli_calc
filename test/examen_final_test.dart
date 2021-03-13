@@ -172,6 +172,34 @@ main() {
 
     expect(examenFinal.nota(), 3);
   });
+  test("Examen Final ERROR: NULO", () {
+    var parcial = Parcial(primerParcial: 50, segundoParcial: 50);
+    var laboratorio = 0;
+    var taller = 0;
+    var trabajoPractico = 0;
+
+    var promedioPonderado = PromedioPonderado(
+      laboratorio: laboratorio,
+      taller: taller,
+      trabajoPractico: trabajoPractico,
+    );
+    promedioPonderado.setParcial = parcial;
+
+    promedioPonderado.setPorcentajeParcial = 0;
+    promedioPonderado.setPorcentajeLaboratorio = 0;
+    promedioPonderado.setPorcentajeTaller = 0;
+    promedioPonderado.setPorcentajeTrabajoPractico = 0;
+
+    var examenFinal = ExamenFinal();
+
+    examenFinal.setPorcentajePromedioPonderado = 60;
+    examenFinal.setPorcetajePuntajeExamenFinal = 40;
+
+    examenFinal.setPromedioPonderado = promedioPonderado;
+    examenFinal.setPuntajeExamenFinal = 0;
+
+    expect(examenFinal.nota(), -1);
+  });
   test("Examen Final ERROR: Promedio Ponderado suma de porcentajes incorrecto",
       () {
     var parcial = Parcial(primerParcial: 85, segundoParcial: 70);
@@ -201,6 +229,7 @@ main() {
 
     expect(examenFinal.nota(), -1);
   });
+
   test("Examen Final ERROR: Promedio Ponderado < 50", () {
     var parcial = Parcial(primerParcial: 40, segundoParcial: 50);
     var laboratorio = 0;

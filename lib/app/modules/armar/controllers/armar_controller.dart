@@ -1,127 +1,153 @@
-//import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:poli_calc/app/models/ExamenFinal.dart';
+import 'package:poli_calc/app/models/Parcial.dart';
+import 'package:poli_calc/app/models/PromedioPonderado.dart';
 
 class ArmarController extends GetxController {
-  /*
-  TextEditingController primerParcialController = TextEditingController();
-  TextEditingController segundoParcialController = TextEditingController();
-  TextEditingController porcentajeParcialController = TextEditingController();
-  TextEditingController tpController = TextEditingController();
-  TextEditingController porcentajeTpController = TextEditingController();
-  TextEditingController labController = TextEditingController();
-  TextEditingController porcentajeLabController = TextEditingController();
-  TextEditingController tallerController = TextEditingController();
-  TextEditingController porcentajeTallerController = TextEditingController();
+  var parcial = Parcial(primerParcial: 50, segundoParcial: 50);
+  var promedioPonderado =
+      PromedioPonderado(laboratorio: 0, taller: 0, trabajoPractico: 0);
+  var examenFinal = ExamenFinal().obs;
 
-  RxBool error = RxBool();
-  RxString errorDetallado = RxString("");
+  @override
+  void onInit() {
+    promedioPonderado.setParcial = parcial;
 
-  RxInt dos = RxInt(0);
-  RxInt tres = RxInt(0);
-  RxInt cuatro = RxInt(0);
-  RxInt cinco = RxInt(0);
+    promedioPonderado.setPorcentajeParcial = 0;
+    promedioPonderado.setPorcentajeLaboratorio = 0;
+    promedioPonderado.setPorcentajeTaller = 0;
+    promedioPonderado.setPorcentajeTrabajoPractico = 0;
 
-  RxDouble promedioPonderado = RxDouble(0.0);
+    examenFinal.value!.setPromedioPonderado = promedioPonderado;
+    examenFinal.value!.setPuntajeExamenFinal = 0;
 
-  bool _validator(String text) {
-    if (num.tryParse(text) != null &&
-        num.tryParse(text)! >= 0 &&
-        num.tryParse(text)! <= 100) {
-      return true;
-    } else {
-      return false;
-    }
+    examenFinal.value!.setPorcentajePromedioPonderado = 60;
+    examenFinal.value!.setPorcetajePuntajeExamenFinal = 40;
+
+    super.onInit();
   }
 
-  void calcular() {
-    if (_validator(primerParcialController.text) &&
-        _validator(segundoParcialController.text) &&
-        _validator(porcentajeParcialController.text) &&
-        _validator(tpController.text) &&
-        _validator(porcentajeTpController.text) &&
-        _validator(labController.text) &&
-        _validator(porcentajeLabController.text) &&
-        _validator(tallerController.text) &&
-        _validator(porcentajeTallerController.text)) {
-      error.value = false;
-      errorDetallado.value = "";
-      int promedioParciales = ((double.tryParse(primerParcialController.text)! +
-                  double.tryParse(segundoParcialController.text)!) /
-              2)
-          .round();
-      if (promedioParciales < 50) {
-        error.value = true;
-        errorDetallado.value = "Error: Promedio de parciales menor a 50";
-      }
-      double porcentajeParciales =
-          int.tryParse(porcentajeParcialController.text)! / 100;
+  @override
+  void onReady() {
+    super.onReady();
+  }
 
-      int tp = int.tryParse(tpController.text);
-      double porcentajeTp = int.tryParse(porcentajeTpController.text) / 100;
+  @override
+  void onClose() {
+    super.onClose();
+  }
 
-      int lab = int.tryParse(labController.text);
-      double porcentajeLab = int.tryParse(porcentajeLabController.text) / 100;
+  void setPrimerParcial(int valor) {
+    examenFinal.value!.promedioPonderado.parcial.primerParcial = valor;
+    examenFinal.refresh();
+  }
 
-      int taller = int.tryParse(tallerController.text);
-      double porcentajeTaller =
-          int.tryParse(porcentajeTallerController.text) / 100;
+  void setSegundoParcial(int valor) {
+    examenFinal.value!.promedioPonderado.parcial.segundoParcial = valor;
+    examenFinal.refresh();
+  }
 
-      if (porcentajeParciales +
-              porcentajeTp +
-              porcentajeLab +
-              porcentajeTaller !=
-          1) {
-        error.value = true;
-        errorDetallado.value = "Error: Los porcentajes no suman 100";
-      }
+  void setParcialPorcentaje(int valor) {
+    examenFinal.value!.promedioPonderado.setPorcentajeParcial = valor;
+    examenFinal.refresh();
+  }
 
-      double parcialesCalculado = promedioParciales * porcentajeParciales;
-      double tpCalculado = tp * porcentajeTp;
-      double labCalculado = lab * porcentajeLab;
-      double tallerCalculado = taller * porcentajeTaller;
+  void setLaboratorio(int valor) {
+    examenFinal.value!.promedioPonderado.laboratorio = valor;
+    examenFinal.refresh();
+  }
 
-      double promedio =
-          (parcialesCalculado + tpCalculado + labCalculado + tallerCalculado);
-      promedioPonderado.value = promedio;
+  void setLaboratorioPorcentaje(int valor) {
+    examenFinal.value!.promedioPonderado.setPorcentajeLaboratorio = valor;
+    examenFinal.refresh();
+  }
 
-      for (var i = 50; i <= 100; i++) {
-        if (((promedio * 0.60) + (i * 0.40)).round() >= 60 && promedio >= 50) {
-          dos.value = i;
-          break;
-        } else {
-          dos.value = 0;
-        }
+  void setTaller(int valor) {
+    examenFinal.value!.promedioPonderado.taller = valor;
+    examenFinal.refresh();
+  }
+
+  void setPorcentajeTaller(int valor) {
+    examenFinal.value!.promedioPonderado.setPorcentajeTaller = valor;
+    examenFinal.refresh();
+  }
+
+  void setTrabajoPractico(int valor) {
+    examenFinal.value!.promedioPonderado.trabajoPractico = valor;
+    examenFinal.refresh();
+  }
+
+  void setPorcentajeTrabajoPractico(int valor) {
+    examenFinal.value!.promedioPonderado.setPorcentajeTrabajoPractico = valor;
+    examenFinal.refresh();
+  }
+
+  int get primerParcial {
+    return examenFinal.value!.promedioPonderado.parcial.primerParcial;
+  }
+
+  int get segundoParcial {
+    return examenFinal.value!.promedioPonderado.parcial.segundoParcial;
+  }
+
+  int get porcentajeParcial {
+    return (examenFinal.value!.promedioPonderado.porcentajeParcial * 100)
+        .toInt();
+  }
+
+  int get laboratorio {
+    return examenFinal.value!.promedioPonderado.laboratorio;
+  }
+
+  int get porcentajeLaboratorio {
+    return (examenFinal.value!.promedioPonderado.porcentajeLaboratorio * 100)
+        .toInt();
+  }
+
+  int get taller {
+    return examenFinal.value!.promedioPonderado.taller;
+  }
+
+  int get porcentajeTaller {
+    return (examenFinal.value!.promedioPonderado.porcentajeTaller * 100)
+        .toInt();
+  }
+
+  int get trabajoPractico {
+    return examenFinal.value!.promedioPonderado.trabajoPractico;
+  }
+
+  int get porcentajeTrabajoPractico {
+    return (examenFinal.value!.promedioPonderado.porcentajeTrabajoPractico *
+            100)
+        .toInt();
+  }
+
+  int _auxCalcularNota(int notaFinal, int iniPuntaje) {
+    for (var puntaje = iniPuntaje; puntaje <= 100; puntaje++) {
+      examenFinal.value!.setPuntajeExamenFinal = puntaje;
+      if (examenFinal.value!.nota() == notaFinal) {
+        return puntaje;
       }
-      for (var i = 50; i <= 100; i++) {
-        if (((promedio * 0.60) + (i * 0.40)).round() >= 71 && promedio >= 50) {
-          tres.value = i;
-          break;
-        } else {
-          tres.value = 0;
-        }
-      }
-      if (dos.value == tres.value) {
-        dos.value = 0;
-      }
-      for (var i = 50; i <= 100; i++) {
-        if (((promedio * 0.60) + (i * 0.40)).round() >= 81 && promedio >= 50) {
-          cuatro.value = i;
-          break;
-        } else {
-          cuatro.value = 0;
-        }
-      }
-      for (var i = 50; i <= 100; i++) {
-        if (((promedio * 0.60) + (i * 0.40)).round() >= 91 && promedio >= 50) {
-          cinco.value = i;
-          break;
-        } else {
-          cinco.value = 0;
-        }
-      }
-    } else {
-      error.value = true;
-      errorDetallado.value = "Error: Datos ingresados no validos";
     }
-  }*/
+    //Error
+    return -1;
+  }
+
+  List<int> calcularNotas() {
+    var puntajeParaDos = _auxCalcularNota(2, 50);
+    var puntajeParaTres = _auxCalcularNota(3, puntajeParaDos);
+    var puntajeParaCuatro = _auxCalcularNota(4, puntajeParaTres);
+    var puntajeParaCinco = _auxCalcularNota(5, puntajeParaCuatro);
+    return [
+      puntajeParaDos,
+      puntajeParaTres,
+      puntajeParaCuatro,
+      puntajeParaCinco
+    ];
+  }
+
+  int error() {
+    return examenFinal.value!.nota();
+  }
 }

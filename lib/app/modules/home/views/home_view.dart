@@ -32,13 +32,13 @@ class HomeView extends GetView<HomeController> {
             ),
             onPressed: controller.irConPromedio,
           ),
-          /*ElevatedButton(
+          ElevatedButton(
             child: Text(
               "Armar Promedio Ponderado",
               style: TextStyle(color: Colors.white),
             ),
             onPressed: controller.irArmar,
-          )*/
+          )
         ],
       )),
     );
