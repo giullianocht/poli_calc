@@ -17,6 +17,14 @@ class ArmarView extends GetView<ArmarController> {
             icon: Icon(Icons.arrow_back),
             onPressed: () => Get.offNamed(Routes.HOME),
           ),
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.replay,
+              ),
+              onPressed: controller.reset,
+            )
+          ],
           bottom: TabBar(
             tabs: [
               Tab(
@@ -45,7 +53,9 @@ class ArmarView extends GetView<ArmarController> {
             bottom: (Get.mediaQuery.size.height * 0.15),
           ),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              mostrarResultado();
+            },
             child: Text("Calcular"),
           ),
         ),
@@ -324,6 +334,61 @@ class ArmarView extends GetView<ArmarController> {
           ),
         ),
       ],
+    );
+  }
+
+  void mostrarResultado() {
+    if (controller.error() == -1) {
+      dialogoDeError("El porcentaje del Promedio Ponderado no es igual a 100");
+    } else if (controller.error() == -2) {
+      dialogoDeError("Promedio Ponderado es menor a 50");
+    } else if (controller.error() == -3) {
+      dialogoDeError(
+          "El porcentaje del Calculo Examen Final no es igual a 100");
+    } else {
+      var notas = controller.calcularNotas();
+      Get.defaultDialog(
+        title: "Notas",
+        content: Column(
+          children: [
+            notas[0] != -1
+                ? Text(
+                    "Puntaje para 2: ${notas[0]}",
+                  )
+                : Container(),
+            notas[1] != -1
+                ? Text(
+                    "Puntaje para 3: ${notas[1]}",
+                  )
+                : Container(),
+            notas[2] != -1
+                ? Text(
+                    "Puntaje para 4: ${notas[2]}",
+                  )
+                : Container(),
+            notas[3] != -1
+                ? Text(
+                    "Puntaje para 5: ${notas[3]}",
+                  )
+                : Container(),
+          ],
+        ),
+      );
+    }
+  }
+
+  void dialogoDeError(String error) {
+    Get.defaultDialog(
+      title: "Error",
+      titleStyle: TextStyle(
+        color: Colors.red,
+      ),
+      content: Text(
+        error,
+        style: TextStyle(
+          color: Colors.red,
+        ),
+      ),
     );
   }
 }

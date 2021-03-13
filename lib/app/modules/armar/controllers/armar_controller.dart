@@ -150,4 +150,19 @@ class ArmarController extends GetxController {
   int error() {
     return examenFinal.value!.nota();
   }
+
+  void reset() {
+    setPrimerParcial(50);
+    setSegundoParcial(50);
+    setParcialPorcentaje(0);
+
+    setLaboratorio(0);
+    setLaboratorioPorcentaje(0);
+
+    setTaller(0);
+    setPorcentajeTaller(0);
+
+    setTrabajoPractico(0);
+    setPorcentajeTrabajoPractico(0);
+  }
 }
