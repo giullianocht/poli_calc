@@ -1,0 +1,23 @@
+{
+    "name": "PoliCalc",
+    "short_name": "PoliCalc",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0175C2",
+    "theme_color": "#0175C2",
+    "description": "Calculadora Para PoliAlumnos.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        }
+    ]
+}
