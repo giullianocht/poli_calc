@@ -32,7 +32,7 @@ class HomeView extends GetView<HomeController> {
                               FontAwesomeIcons.whatsapp,
                             ),
                             onPressed: () {
-                              launch("https://wa.me/0983342745");
+                              launch("https://wa.me/+595983342745");
                             },
                           ),
                           IconButton(
