@@ -1,16 +1,10 @@
-# poli_calc
+# PoliCalc
 
-A new Flutter project.
+PoliCalc es una calculadora para PoliAlumnos - UNA que
+facilita al alumno realizar los cálculos para conocer su nota final de una materia.
 
-## Getting Started
+## Screenshoots
 
-This project is a starting point for a Flutter application.
+## Link
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Esta disponible en la web, [Ir a PoliCalc](http://poli-calc-albrecht.surge.sh/)
