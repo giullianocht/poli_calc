@@ -1,5 +1,5 @@
-import 'package:poli_calc/app/util/Util.dart';
 import 'package:poli_calc/app/models/Parcial.dart';
+import 'package:poli_calc/app/util/Util.dart';
 
 class PromedioPonderado {
   late Parcial parcial;

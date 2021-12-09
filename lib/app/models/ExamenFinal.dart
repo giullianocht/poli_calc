@@ -1,5 +1,5 @@
-import 'package:poli_calc/app/util/Util.dart';
 import 'package:poli_calc/app/models/PromedioPonderado.dart';
+import 'package:poli_calc/app/util/Util.dart';
 
 class ExamenFinal {
   static const int escalaDos = 60;

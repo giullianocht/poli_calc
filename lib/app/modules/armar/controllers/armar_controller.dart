@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import 'package:poli_calc/app/models/ExamenFinal.dart';
 import 'package:poli_calc/app/models/Parcial.dart';
 import 'package:poli_calc/app/models/PromedioPonderado.dart';
@@ -18,11 +19,11 @@ class ArmarController extends GetxController {
     promedioPonderado.setPorcentajeTaller = 0;
     promedioPonderado.setPorcentajeTrabajoPractico = 0;
 
-    examenFinal.value!.setPromedioPonderado = promedioPonderado;
-    examenFinal.value!.setPuntajeExamenFinal = 0;
+    examenFinal.value.setPromedioPonderado = promedioPonderado;
+    examenFinal.value.setPuntajeExamenFinal = 0;
 
-    examenFinal.value!.setPorcentajePromedioPonderado = 60;
-    examenFinal.value!.setPorcetajePuntajeExamenFinal = 40;
+    examenFinal.value.setPorcentajePromedioPonderado = 60;
+    examenFinal.value.setPorcetajePuntajeExamenFinal = 40;
 
     super.onInit();
   }
@@ -38,95 +39,93 @@ class ArmarController extends GetxController {
   }
 
   void setPrimerParcial(int valor) {
-    examenFinal.value!.promedioPonderado.parcial.primerParcial = valor;
+    examenFinal.value.promedioPonderado.parcial.primerParcial = valor;
     examenFinal.refresh();
   }
 
   void setSegundoParcial(int valor) {
-    examenFinal.value!.promedioPonderado.parcial.segundoParcial = valor;
+    examenFinal.value.promedioPonderado.parcial.segundoParcial = valor;
     examenFinal.refresh();
   }
 
   void setParcialPorcentaje(int valor) {
-    examenFinal.value!.promedioPonderado.setPorcentajeParcial = valor;
+    examenFinal.value.promedioPonderado.setPorcentajeParcial = valor;
     examenFinal.refresh();
   }
 
   void setLaboratorio(int valor) {
-    examenFinal.value!.promedioPonderado.laboratorio = valor;
+    examenFinal.value.promedioPonderado.laboratorio = valor;
     examenFinal.refresh();
   }
 
   void setLaboratorioPorcentaje(int valor) {
-    examenFinal.value!.promedioPonderado.setPorcentajeLaboratorio = valor;
+    examenFinal.value.promedioPonderado.setPorcentajeLaboratorio = valor;
     examenFinal.refresh();
   }
 
   void setTaller(int valor) {
-    examenFinal.value!.promedioPonderado.taller = valor;
+    examenFinal.value.promedioPonderado.taller = valor;
     examenFinal.refresh();
   }
 
   void setPorcentajeTaller(int valor) {
-    examenFinal.value!.promedioPonderado.setPorcentajeTaller = valor;
+    examenFinal.value.promedioPonderado.setPorcentajeTaller = valor;
     examenFinal.refresh();
   }
 
   void setTrabajoPractico(int valor) {
-    examenFinal.value!.promedioPonderado.trabajoPractico = valor;
+    examenFinal.value.promedioPonderado.trabajoPractico = valor;
     examenFinal.refresh();
   }
 
   void setPorcentajeTrabajoPractico(int valor) {
-    examenFinal.value!.promedioPonderado.setPorcentajeTrabajoPractico = valor;
+    examenFinal.value.promedioPonderado.setPorcentajeTrabajoPractico = valor;
     examenFinal.refresh();
   }
 
   int get primerParcial {
-    return examenFinal.value!.promedioPonderado.parcial.primerParcial;
+    return examenFinal.value.promedioPonderado.parcial.primerParcial;
   }
 
   int get segundoParcial {
-    return examenFinal.value!.promedioPonderado.parcial.segundoParcial;
+    return examenFinal.value.promedioPonderado.parcial.segundoParcial;
   }
 
   int get porcentajeParcial {
-    return (examenFinal.value!.promedioPonderado.porcentajeParcial * 100)
+    return (examenFinal.value.promedioPonderado.porcentajeParcial * 100)
         .toInt();
   }
 
   int get laboratorio {
-    return examenFinal.value!.promedioPonderado.laboratorio;
+    return examenFinal.value.promedioPonderado.laboratorio;
   }
 
   int get porcentajeLaboratorio {
-    return (examenFinal.value!.promedioPonderado.porcentajeLaboratorio * 100)
+    return (examenFinal.value.promedioPonderado.porcentajeLaboratorio * 100)
         .toInt();
   }
 
   int get taller {
-    return examenFinal.value!.promedioPonderado.taller;
+    return examenFinal.value.promedioPonderado.taller;
   }
 
   int get porcentajeTaller {
-    return (examenFinal.value!.promedioPonderado.porcentajeTaller * 100)
-        .toInt();
+    return (examenFinal.value.promedioPonderado.porcentajeTaller * 100).toInt();
   }
 
   int get trabajoPractico {
-    return examenFinal.value!.promedioPonderado.trabajoPractico;
+    return examenFinal.value.promedioPonderado.trabajoPractico;
   }
 
   int get porcentajeTrabajoPractico {
-    return (examenFinal.value!.promedioPonderado.porcentajeTrabajoPractico *
-            100)
+    return (examenFinal.value.promedioPonderado.porcentajeTrabajoPractico * 100)
         .toInt();
   }
 
   int _auxCalcularNota(int notaFinal, int iniPuntaje) {
     for (var puntaje = iniPuntaje; puntaje <= 100; puntaje++) {
-      examenFinal.value!.setPuntajeExamenFinal = puntaje;
-      if (examenFinal.value!.nota() == notaFinal) {
+      examenFinal.value.setPuntajeExamenFinal = puntaje;
+      if (examenFinal.value.nota() == notaFinal) {
         return puntaje;
       }
     }
@@ -148,7 +147,7 @@ class ArmarController extends GetxController {
   }
 
   int error() {
-    return examenFinal.value!.nota();
+    return examenFinal.value.nota();
   }
 
   void reset() {

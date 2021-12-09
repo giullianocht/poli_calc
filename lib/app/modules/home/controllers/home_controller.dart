@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import 'package:poli_calc/app/routes/app_pages.dart';
 
 class HomeController extends GetxController {

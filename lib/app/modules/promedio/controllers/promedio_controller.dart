@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import 'package:poli_calc/app/models/ExamenFinal.dart';
 import 'package:poli_calc/app/models/PromedioPonderado.dart';
 
@@ -10,11 +11,11 @@ class PromedioController extends GetxController {
 
   @override
   void onInit() {
-    examenFinal.value!.setPromedioPonderado = _promedioPonderado;
-    examenFinal.value!.setPuntajeExamenFinal = 0;
+    examenFinal.value.setPromedioPonderado = _promedioPonderado;
+    examenFinal.value.setPuntajeExamenFinal = 0;
 
-    examenFinal.value!.setPorcentajePromedioPonderado = 60;
-    examenFinal.value!.setPorcetajePuntajeExamenFinal = 40;
+    examenFinal.value.setPorcentajePromedioPonderado = 60;
+    examenFinal.value.setPorcetajePuntajeExamenFinal = 40;
 
     super.onInit();
   }
@@ -39,8 +40,8 @@ class PromedioController extends GetxController {
 
   int _auxCalcularNota(int notaFinal, int iniPuntaje) {
     for (var puntaje = iniPuntaje; puntaje <= 100; puntaje++) {
-      examenFinal.value!.setPuntajeExamenFinal = puntaje;
-      if (examenFinal.value!.nota() == notaFinal) {
+      examenFinal.value.setPuntajeExamenFinal = puntaje;
+      if (examenFinal.value.nota() == notaFinal) {
         return puntaje;
       }
     }
@@ -49,7 +50,7 @@ class PromedioController extends GetxController {
   }
 
   List<int> calcularNotas() {
-    examenFinal.value!.promedioPonderado.setPromedioPonderado =
+    examenFinal.value.promedioPonderado.setPromedioPonderado =
         _auxPromedioPonderado.value;
     var puntajeParaDos = _auxCalcularNota(2, 50);
     var puntajeParaTres = _auxCalcularNota(3, puntajeParaDos);

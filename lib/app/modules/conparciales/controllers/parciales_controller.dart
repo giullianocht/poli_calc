@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import 'package:poli_calc/app/models/ExamenFinal.dart';
 import 'package:poli_calc/app/models/Parcial.dart';
 import 'package:poli_calc/app/models/PromedioPonderado.dart';
@@ -22,11 +23,11 @@ class ConParcialesController extends GetxController {
     promedioPonderado.setPorcentajeTaller = 0;
     promedioPonderado.setPorcentajeTrabajoPractico = 0;
 
-    examenFinal.value!.setPromedioPonderado = promedioPonderado;
-    examenFinal.value!.setPuntajeExamenFinal = 0;
+    examenFinal.value.setPromedioPonderado = promedioPonderado;
+    examenFinal.value.setPuntajeExamenFinal = 0;
 
-    examenFinal.value!.setPorcentajePromedioPonderado = 60;
-    examenFinal.value!.setPorcetajePuntajeExamenFinal = 40;
+    examenFinal.value.setPorcentajePromedioPonderado = 60;
+    examenFinal.value.setPorcetajePuntajeExamenFinal = 40;
 
     super.onInit();
   }
@@ -42,27 +43,27 @@ class ConParcialesController extends GetxController {
   }
 
   void setPrimerParcial(int valor) {
-    examenFinal.value!.promedioPonderado.parcial.primerParcial = valor;
+    examenFinal.value.promedioPonderado.parcial.primerParcial = valor;
     examenFinal.refresh();
   }
 
   void setSegundoParcial(int valor) {
-    examenFinal.value!.promedioPonderado.parcial.segundoParcial = valor;
+    examenFinal.value.promedioPonderado.parcial.segundoParcial = valor;
     examenFinal.refresh();
   }
 
   int get primerParcial {
-    return examenFinal.value!.promedioPonderado.parcial.primerParcial;
+    return examenFinal.value.promedioPonderado.parcial.primerParcial;
   }
 
   int get segundoParcial {
-    return examenFinal.value!.promedioPonderado.parcial.segundoParcial;
+    return examenFinal.value.promedioPonderado.parcial.segundoParcial;
   }
 
   int _auxCalcularNota(int notaFinal, int iniPuntaje) {
     for (var puntaje = iniPuntaje; puntaje <= 100; puntaje++) {
-      examenFinal.value!.setPuntajeExamenFinal = puntaje;
-      if (examenFinal.value!.nota() == notaFinal) {
+      examenFinal.value.setPuntajeExamenFinal = puntaje;
+      if (examenFinal.value.nota() == notaFinal) {
         return puntaje;
       }
     }
