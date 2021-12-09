@@ -15,4 +15,4 @@ facilita al alumno realizar los cálculos para conocer su nota final de una mate
 
 ## Link
 
-Esta disponible en la web, [Ir a PoliCalc](http://poli-calc-albrecht.surge.sh/)
+Esta disponible en la web, [Ir a PoliCalc](https://poli-calc-albrecht.surge.sh/)
