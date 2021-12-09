@@ -98,17 +98,17 @@ class ConParcialesView extends GetView<ConParcialesController> {
       title: "Notas",
       content: Column(
         children: [
-          notas[0] != -1
+          notas[0] != -1 && notas[0] >= 50
               ? Text(
                   "Puntaje para 2: ${notas[0]}",
                 )
               : Container(),
-          notas[1] != -1
+          notas[1] != -1 && notas[1] >= 50
               ? Text(
                   "Puntaje para 3: ${notas[1]}",
                 )
               : Container(),
-          notas[2] != -1
+          notas[2] != -1 && notas[2] >= 50
               ? Text(
                   "Puntaje para 4: ${notas[2]}",
                 )
