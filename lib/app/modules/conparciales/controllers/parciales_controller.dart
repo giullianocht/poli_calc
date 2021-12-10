@@ -61,6 +61,9 @@ class ConParcialesController extends GetxController {
   }
 
   int _auxCalcularNota(int notaFinal, int iniPuntaje) {
+    if (iniPuntaje == -1) {
+      iniPuntaje = 50;
+    }
     for (var puntaje = iniPuntaje; puntaje <= 100; puntaje++) {
       examenFinal.value.setPuntajeExamenFinal = puntaje;
       if (examenFinal.value.nota() == notaFinal) {
